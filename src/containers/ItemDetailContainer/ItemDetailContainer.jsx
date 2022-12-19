@@ -4,7 +4,7 @@ import { prodAxios } from "../../services/Api";
 import { useParams } from "react-router-dom";
 import Spinner from "../../assets/Spinners/Spinner";
 
-const ItemDetailContainer = ({ greeting }) => {
+const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const {id} = useParams();
@@ -25,10 +25,9 @@ const ItemDetailContainer = ({ greeting }) => {
   },[id])
 
   return (
-    <div>
-      <h1>{greeting}</h1>
+    <>
       {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}
-    </div>
+    </>
   );
 };
 

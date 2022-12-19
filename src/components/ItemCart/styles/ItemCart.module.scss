@@ -1,3 +1,65 @@
-.itemcart{
-
+.CartItems{
+	margin: auto;
+	width: 90%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
+
+.action{
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+	border-bottom: 1px solid #E44C4C;
+}
+
+.imagebox{
+	width: 15%;
+	text-align: center;
+}
+
+.about{
+	height: 100%;
+	width: 24%;
+}
+
+.title{
+	padding-top: 10px;
+	line-height: 25px;
+	font-size: 18px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+
+.prices{
+	height: 100%;
+	text-align: right;
+}
+
+.items{
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 500;
+	color: #909090;
+	line-height: 10px;
+}
+
+.amount{
+	padding-top: 20px;
+	font-size: 26px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+
+.subtotal{
+	font-size: 22px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #202020;
+}
+

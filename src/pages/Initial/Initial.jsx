@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from '../../containers/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../../containers/ItemListContainer';
@@ -22,21 +23,20 @@ export const Initial =() =>{
     { name: "Jewelry", id: 3, route: "/category/jewelery" }];
 
   return (
-    <>
-      <BrowserRouter>
-        <CartProvider>
-          <Layout>
-            <Header categories={Categories} />
+    <BrowserRouter>
+      <CartProvider>
+        <Layout>
+          <Header categories={Categories} />
             <Routes>
               <Route path="/" element={<ItemListContainer greeting={Greeting} title={Title} />}/>
               <Route path="/category/:id" element={<ItemListContainer greeting={Greeting} pag={Pag} />}/>
               <Route path="/:id" element={<ItemDetailContainer />}/>
               <Route exact path='/cart' element={<Cart />} />
             </Routes>
-          </Layout> 
-        </CartProvider>
-      </BrowserRouter>
-    </>
+          <Footer />
+        </Layout> 
+      </CartProvider>
+    </BrowserRouter>
   )
 }
 
