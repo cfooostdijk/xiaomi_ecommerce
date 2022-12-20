@@ -1,0 +1,10 @@
+.main-footer {
+  color: black;
+  background-color: white;
+  padding-top: 25px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 0; 
+}
