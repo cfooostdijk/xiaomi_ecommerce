@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Api from "../services/Api";
+import { catAxios } from "../../services/Api";
 
-const Categories = () => {
+const Categories2 = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = async () => {
     try {
-      const result = await Api.get(`/categories`);
-      setCategories(result.data);
+      const result = await catAxios.get();
+      setCategories(result);
+      console.log(categories)
     } catch { console.log("error"); } 
   };
 
@@ -16,4 +17,4 @@ const Categories = () => {
   },[])
 };
   
-export default Categories;
+export default Categories2;

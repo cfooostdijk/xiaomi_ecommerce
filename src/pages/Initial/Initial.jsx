@@ -8,13 +8,11 @@ import ItemListContainer from '../../containers/ItemListContainer';
 import Layout from '../../containers/Layout';
 import CartProvider from '../../context/CartContext';
 import Cart from '../../components/Cart/Cart';
+import Banner from '../../components/Banner/Banner';
+import Categories2 from '../../containers/Categories/Categories';
 
 
 export const Initial =() =>{
-
-  const Greeting = ["Welcome"];
-  const Title = ["Another shop store"]
-  const Pag = ["This is a Category"]
 
   const Categories = [
     { name: "Men", id: 0, route: "/category/men's clothing" },
@@ -26,10 +24,12 @@ export const Initial =() =>{
     <BrowserRouter>
       <CartProvider>
         <Layout>
+          <Categories2 />
           <Header categories={Categories} />
+          <Banner />
             <Routes>
-              <Route path="/" element={<ItemListContainer greeting={Greeting} title={Title} />}/>
-              <Route path="/category/:id" element={<ItemListContainer greeting={Greeting} pag={Pag} />}/>
+              <Route path="/" element={<ItemListContainer />}/>
+              <Route path="/category/:id" element={<ItemListContainer />}/>
               <Route path="/:id" element={<ItemDetailContainer />}/>
               <Route exact path='/cart' element={<Cart />} />
             </Routes>

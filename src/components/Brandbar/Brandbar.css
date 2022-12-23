@@ -1,0 +1,28 @@
+.brandbar__div {
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  height: 25px;
+  color: grey;
+  background-color: white;
+}
+
+.brandbar__span {
+  position: absolute;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-style: italic;
+  white-space: nowrap;
+  animation: move-left-to-right linear 60s infinite;
+}
+
+@keyframes move-left-to-right {
+  from {
+      transform: translateX(-50%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}

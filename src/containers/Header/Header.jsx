@@ -1,11 +1,11 @@
 import React from 'react';
-import BrandSlide from '../../components/BrandSlide/BrandSlide';
+import Brandbar from '../../components/Brandbar/Brandbar';
 import NavBar from '../../components/Navbar/Navbar';
 
 const Header = ({categories}) => {
 	return (
 		<>
-			{/* <BrandSlide /> */}
+			<Brandbar />
 			<NavBar categories={categories} />
 		</>
 	)

@@ -3,6 +3,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { prodAxios } from "../../services/Api";
 import { useParams } from "react-router-dom";
 import Spinner from "../../assets/Spinners/Spinner";
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
