@@ -5,8 +5,11 @@ import NavBar from '../../components/Navbar/Navbar';
 const Header = ({categories}) => {
 	return (
 		<>
-			<Brandbar />
-			<NavBar categories={categories} />
+			<div>
+				<Brandbar />
+			</div>
+				
+				<NavBar categories={categories} />
 		</>
 	)
 }
