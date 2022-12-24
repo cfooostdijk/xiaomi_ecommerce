@@ -3,9 +3,10 @@ import styles from './styles/Icons.module.scss';
 
 const Cart = () => {
   return (
-    <img className={styles.brandlogo} src={require("../Images/Xiaomi_logo.png")} alt="brandlogo" />
+    <a href="/">
+      <img className={styles.brandlogo} src={require("../Images/Xiaomi_logo.png")} alt="brandlogo" href />
+    </a>
   )
 }
 
 export default Cart;
-

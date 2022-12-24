@@ -26,11 +26,21 @@ const ItemDetailContainer = () => {
   },[id])
 
   return (
-    <>
+    <div style={styles.cont}>
       {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}
-    </>
+    </div>
   );
 };
+
+const styles = {
+  cont: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexWrap: "wrap",
+  }
+}
 
 export default ItemDetailContainer;
 

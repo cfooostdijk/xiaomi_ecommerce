@@ -1,15 +1,25 @@
 import React from 'react';
+import styles from './styles/Header.module.scss';
 import Brandbar from '../../components/Brandbar/Brandbar';
-import NavBar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
+import Brandlogo from '../../assets/Icons/Brandlogo';
+import CartWidget from '../../containers/CartWidget';
 
 const Header = ({categories}) => {
 	return (
 		<>
-			<div>
-				<Brandbar />
-			</div>
-				
-				<NavBar categories={categories} />
+      <Brandbar />
+      <div className={styles.header}>
+        <div className={styles.headerbrand}>
+          <Brandlogo />
+        </div>
+        <div className={styles.headermenu}>
+          <Navbar categories={categories} />
+        </div>
+        <div className={styles.headericons}>
+          <CartWidget />
+        </div>
+      </div>
 		</>
 	)
 }

@@ -26,11 +26,11 @@ export const Initial =() =>{
         <Layout>
           <Categories2 />
           <Header categories={Categories} />
-          <Banner />
+          {/* <Banner /> */}
             <Routes>
-              <Route path="/" element={<ItemListContainer />}/>
-              <Route path="/category/:id" element={<ItemListContainer />}/>
-              <Route path="/:id" element={<ItemDetailContainer />}/>
+              <Route exact path="/" element={<ItemListContainer />}/>
+              <Route exact path="/category/:id" element={<ItemListContainer />}/>
+              <Route exact path="/:id" element={<ItemDetailContainer />}/>
               <Route exact path='/cart' element={<Cart />} />
             </Routes>
           <Footer />

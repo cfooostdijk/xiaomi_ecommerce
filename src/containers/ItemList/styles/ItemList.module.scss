@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@200&display=swap');
+
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  font-family: 'Sarabun', sans-serif;
+  padding-top: 40px;
+  padding-right: 10px;
 }
 
 * {
@@ -12,6 +17,5 @@
 
 a {
   text-decoration: none;
-  padding: 0px 60px 0px;
   color: black;
 }

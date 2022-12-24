@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import ItemCart from "../ItemCart/ItemCart";
 import styles from './styles/Cart.module.scss';
 
-const Cart = ({product}) => {
-  const { cart, totalPrice, removeProduct } = useCartContext();
-
-  if (cart.lenght === 0) {
+const Cart = () => {
+  const { cart, totalPrice, totalProducts } = useCartContext();
+console.log(totalProducts)
+  if (totalProducts() === 0) {
     return (
       <>
         <p>No hay elementos en el carrito</p>

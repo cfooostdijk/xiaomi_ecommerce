@@ -1,26 +1,35 @@
 import React from 'react';
-import styles from './styles/Item.module.scss';
 import {Link} from 'react-router-dom'
+import './Item.css';
 
 const Item = ({ product }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.title}>{product.title}</div>
-      <div className={styles.image}>
-        <img src={product.image} alt={product.title} />
-      </div>
-      <div className={styles.features}>
-        <ul>
-          <li>$ {product.price}</li>
-        </ul>
-      </div>
-      <div>
-        <Link to={`/${product.id}`} >
-          <button type="button" className={styles.btn}>Check it out</button>
-        </Link>
+    <div class="card-container">
+      <div class="card-wrapper">
+        <div lass="card-top">
+          <div class="image">
+            <img src={product.image} alt={product.title} style={styles.img} />
+          </div>
+        </div>
+        <div class="card-bottom">
+          <div class="top-text">{product.title}</div>
+          <div class="bottom-text"> $ {product.price}</div>
+          <div>
+            <Link to={`/${product.id}`} >
+              <button type="button" class="button">Check it out</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
+const styles = {
+  img: {
+    width: "300px",
+    height: "400px"
+  }
+}
 
 export default Item;

@@ -15,7 +15,7 @@ const ItemDetail = ({ product }) => {
 
   return (
     <div className={styles.card}>
-      <Link to="/"> <button className={styles.btn}>Back to products</button> </Link>
+      <Link to="/"> <button className={styles.btn}>Back to products</button></Link>
       <div className={styles.photo}>
         <img src={product.image} alt={product.title} />
       </div>
@@ -23,11 +23,11 @@ const ItemDetail = ({ product }) => {
         <h2>{product.title}</h2>
         <h1>$ {product.price}</h1>
         <p>{product.description}</p>
+        {
+          goToCart ? <Link to='/cart'><button className={styles.btn}>Go to cart</button></Link>
+          : <ItemCount initial={3} stock={5} onAdd={onAdd} />
+        }
       </div>
-      {
-        goToCart ? <Link to='/cart'>Terminar compra</Link>
-        : <ItemCount initial={3} stock={5} onAdd={onAdd} />
-      }
     </div>
   );
 };
