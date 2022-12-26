@@ -2,6 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from '../../containers/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import './Initial.css'
+
+import { DarkModeProvider } from '../../context/DarkModeContext';
+import ThemeContainer from '../../containers/ThemeContainer/ThemeContainer'
 
 import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../../containers/ItemListContainer';
@@ -24,6 +28,8 @@ export const Initial =() =>{
   return (
     <BrowserRouter>
       <CartProvider>
+        <DarkModeProvider>
+          <ThemeContainer />
           <Layout>
             <Categories2 />
             <Header categories={Categories} />
@@ -36,6 +42,7 @@ export const Initial =() =>{
               </Routes>
             <Footer />
           </Layout> 
+        </DarkModeProvider>
       </CartProvider>
     </BrowserRouter>
   )
