@@ -9,10 +9,11 @@ const Cart = () => {
 console.log(totalProducts)
   if (totalProducts() === 0) {
     return (
-      <>
-        <p>No hay elementos en el carrito</p>
-        <Link to='/'>Hacer compras</Link>
-      </>
+      <div className={styles.nocart}>
+        <h3>No hay elementos en el carrito <br></br><br></br>
+          =(</h3>
+        <Link to="/"> <button className={styles.btn}>Back to products</button></Link>
+      </div>
     );
   }
 

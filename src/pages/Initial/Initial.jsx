@@ -12,6 +12,7 @@ import Banner from '../../components/Banner/Banner';
 import Categories2 from '../../containers/Categories/Categories';
 
 
+
 export const Initial =() =>{
 
   const Categories = [
@@ -23,18 +24,18 @@ export const Initial =() =>{
   return (
     <BrowserRouter>
       <CartProvider>
-        <Layout>
-          <Categories2 />
-          <Header categories={Categories} />
-          {/* <Banner /> */}
-            <Routes>
-              <Route exact path="/" element={<ItemListContainer />}/>
-              <Route exact path="/category/:id" element={<ItemListContainer />}/>
-              <Route exact path="/:id" element={<ItemDetailContainer />}/>
-              <Route exact path='/cart' element={<Cart />} />
-            </Routes>
-          <Footer />
-        </Layout> 
+          <Layout>
+            <Categories2 />
+            <Header categories={Categories} />
+            {/* <Banner /> */}
+              <Routes>
+                <Route exact path="/" element={<ItemListContainer />}/>
+                <Route exact path="/category/:id" element={<ItemListContainer />}/>
+                <Route exact path="/:id" element={<ItemDetailContainer />}/>
+                <Route exact path='/cart' element={<Cart />} />
+              </Routes>
+            <Footer />
+          </Layout> 
       </CartProvider>
     </BrowserRouter>
   )
