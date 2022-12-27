@@ -1,16 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from '../../containers/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import './Initial.css'
+
+import Banner from '../../components/Banner/Banner';
+import Cart from '../../components/Cart/Cart';
+import CartProvider from '../../context/CartContext';
+import Categories2 from '../../containers/Categories/Categories';
+import Checkout from '../../components/Checkout/Checkout';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../containers/Header/Header';
 import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../../containers/ItemListContainer';
 import Layout from '../../containers/Layout';
-import CartProvider from '../../context/CartContext';
-import Cart from '../../components/Cart/Cart';
-import Banner from '../../components/Banner/Banner';
-import Categories2 from '../../containers/Categories/Categories';
-import Checkout from '../../components/Checkout/Checkout';
 
 export const Initial =() =>{
 
