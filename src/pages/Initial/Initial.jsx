@@ -3,10 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from '../../containers/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import './Initial.css'
-
-import { DarkModeProvider } from '../../context/DarkModeContext';
-import ThemeContainer from '../../containers/ThemeContainer/ThemeContainer'
-
 import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../../containers/ItemListContainer';
 import Layout from '../../containers/Layout';
@@ -14,22 +10,20 @@ import CartProvider from '../../context/CartContext';
 import Cart from '../../components/Cart/Cart';
 import Banner from '../../components/Banner/Banner';
 import Categories2 from '../../containers/Categories/Categories';
-
-
+import Checkout from '../../components/Checkout/Checkout';
 
 export const Initial =() =>{
 
   const Categories = [
-    { name: "Men", id: 0, route: "/category/men's clothing" },
-    { name: "Women", id: 1, route: "/category/women's clothing" },
-    { name: "Electronics", id: 2, route: "/category/electronics" },
-    { name: "Jewelry", id: 3, route: "/category/jewelery" }];
+    { name: "Smartphones", id: 0, route: "/category/smartphones" },
+    { name: "Headphones", id: 1, route: "/category/headphones" },
+    { name: "Smartwatchs", id: 2, route: "/category/smartwatchs" },
+    { name: "Smart-Home", id: 3, route: "/category/smart-home" },
+    { name: "Electronics", id:4, route: "/category/electronics" }];
 
   return (
     <BrowserRouter>
       <CartProvider>
-        <DarkModeProvider>
-          <ThemeContainer />
           <Layout>
             <Categories2 />
             <Header categories={Categories} />
@@ -39,10 +33,11 @@ export const Initial =() =>{
                 <Route exact path="/category/:id" element={<ItemListContainer />}/>
                 <Route exact path="/:id" element={<ItemDetailContainer />}/>
                 <Route exact path='/cart' element={<Cart />} />
+                <Route exact path='/checkout' element={<Checkout />} />
+                <Route exact path='/payment' element={''} />
               </Routes>
             <Footer />
           </Layout> 
-        </DarkModeProvider>
       </CartProvider>
     </BrowserRouter>
   )

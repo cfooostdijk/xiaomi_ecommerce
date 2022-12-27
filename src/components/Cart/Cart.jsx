@@ -6,7 +6,7 @@ import styles from './styles/Cart.module.scss';
 
 const Cart = () => {
   const { cart, totalPrice, totalProducts } = useCartContext();
-console.log(totalProducts)
+
   if (totalProducts() === 0) {
     return (
       <div className={styles.nocart}>
@@ -29,7 +29,7 @@ console.log(totalProducts)
 			  <div className={styles.total}></div>
 				<div className={styles.totalamount}>Total: $ {totalPrice()}</div>
 			</div>
-			<button className={styles.button}>Checkout</button>
+			<Link to='/checkout'><button className={styles.button}>Go to Checkout</button></Link>
     </div>
   )
 }

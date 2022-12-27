@@ -27,7 +27,7 @@ const Item = ({ product }) => {
 
 const styles = {
   img: {
-    width: "300px",
+    width: "197px",
     height: "400px"
   }
 }

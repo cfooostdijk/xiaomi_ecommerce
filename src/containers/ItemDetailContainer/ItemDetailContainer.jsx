@@ -10,24 +10,32 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
   const {id} = useParams();
 
-  const getProduct = async () => {
-    try {
-      const result = await prodAxios.get();
-      const product = result.data;
-      const prod = product.find(p => p.id === parseInt(id));
-      console.log(prod);
-      setProduct(prod);
-    } catch { console.log("error"); } 
-    finally { setLoading(false); }
-  };
-
-  useEffect(()=>{
-    getProduct()
+  useEffect(() => {
+    const querydb = getFirestore();
+    const queryDoc = doc(querydb, 'products', id);
+    getDoc(queryDoc)
+      .then(product => setProduct({id: product.id, ...product.data() }))
   },[id])
+  
+
+  // const getProduct = async () => {
+  //   try {
+  //     const result = await prodAxios.get();
+  //     const product = result.data;
+  //     const prod = product.find(p => p.id === parseInt(id));
+  //     console.log(prod);
+  //     setProduct(prod);
+  //   } catch { console.log("error"); } 
+  //   finally { setLoading(false); }
+  // };
+
+  // useEffect(()=>{
+  //   getProduct()
+  // },[id])
 
   return (
     <div style={styles.cont}>
-      {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}
+      <ItemDetail product={product} />
     </div>
   );
 };

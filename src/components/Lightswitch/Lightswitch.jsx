@@ -1,18 +1,22 @@
-import React, {useContext} from 'react';
-import { DarkModeContext } from '../../context/DarkModeContext';
+import React, { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import '../../pages/Initial/Initial.css'
 
-function Lightswitch() {
-    const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
-    const handleClick = () => {
-        toggleDarkMode();
+export default function SwitchButton() {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
+
+  const onClick = () => {
+    if (darkMode) {
+      theme.dispatch({ type: "LIGHTMODE" });
+    } else {
+      theme.dispatch({ type: "DARKMODE" });
     }
-    return (
-        <div className="Lightswitch">
-            <img src={darkMode ? 
-            `../img/lightswitch-off.png` : `../img/lightswitch-on.png`} alt="Lightswitch on" onClick={handleClick}/>          
-        </div>
-    )
-}
+  };
 
-// Light Switch design by Jeremy Loyd, US - Public Domain
-export default Lightswitch
+  return (
+    <button className={`btn ${darkMode ? "btn-dark" : "btn-light"}`} onClick={onClick}>
+      {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+    </button>
+  );
+}
