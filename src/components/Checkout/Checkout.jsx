@@ -73,10 +73,10 @@ const Checkout = () => {
 
 	return (
 		<Fragment>
-			<Paper>
+			<Paper className={styles.paper}>
 				<Box px={3} py={2}>
 					<Typography variant="h6" align="center" margin="dense">
-						React Hook Form - Material UI - Validation
+						Checkout register
 					</Typography>
 
 					<Grid container spacing={1}>
@@ -188,16 +188,14 @@ const Checkout = () => {
 						</Grid>
 					</Grid>
 
-					<Box mt={3}>
-						<Button
-							variant="contained"
-							color="primary"
+					<Box mt={3} className={styles.buttoncont}>
+						<Button className={styles.btn}
 							onClick={handleSubmit(onSubmit)}
 						>
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/payment'><Button	variant="contained"	color="primary"	onClick={handleClick} >
+							goToPayment ? <Link to='/payment'><Button className={styles.btn} onClick={handleClick} >
 							Go to Payment </Button></Link> : <p></p>
 						}
 					</Box>

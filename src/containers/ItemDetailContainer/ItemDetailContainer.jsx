@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
-import { prodAxios } from "../../services/Api";
 import { useParams } from "react-router-dom";
 import Spinner from "../../assets/Spinners/Spinner";
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
@@ -13,29 +12,21 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const querydb = getFirestore();
     const queryDoc = doc(querydb, 'products', id);
+    setLoading(false)
     getDoc(queryDoc)
-      .then(product => setProduct({id: product.id, ...product.data() }))
-  },[id])
+      // .then(product => {setProduct({id: product.id, ...product.data() }))
+    .then(product => {
+      if (product.exists) {
+        setProduct({id: product.id, ...product.data() });
+      } else {
+        console.log('document abc DOES NOT exist');
+      }
+    })},
+  [id])
   
-
-  // const getProduct = async () => {
-  //   try {
-  //     const result = await prodAxios.get();
-  //     const product = result.data;
-  //     const prod = product.find(p => p.id === parseInt(id));
-  //     console.log(prod);
-  //     setProduct(prod);
-  //   } catch { console.log("error"); } 
-  //   finally { setLoading(false); }
-  // };
-
-  // useEffect(()=>{
-  //   getProduct()
-  // },[id])
-
   return (
     <div style={styles.cont}>
-      <ItemDetail product={product} />
+      {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}
     </div>
   );
 };
@@ -52,3 +43,5 @@ const styles = {
 
 export default ItemDetailContainer;
 
+// setLoading(false);
+// {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}

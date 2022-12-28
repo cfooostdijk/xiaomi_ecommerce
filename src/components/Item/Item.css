@@ -1,6 +1,4 @@
 .image {
-  width: 100%;
-  height: 100%;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
   z-index: 20;
@@ -8,6 +6,7 @@
 
 .card-container {
   padding-bottom: 40px;
+  padding-top: 40px; 
 }
 
 .card-wrapper {
@@ -17,11 +16,13 @@
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-wrapper:hover .image {
-  filter: blur(1.4px);
-  transform: scale(1.5);
+  transform: rotateZ(25deg);
   overflow: hidden;
   transition: all 0.3s linear;
 }
@@ -37,6 +38,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  vertical-align: middle;
 }
 
 .card-bottom {

@@ -3,19 +3,27 @@
 	font-family: 'Open Sans';
 	font-weight: 700;
 	color: #2F3841;
+	display: grid;
+	justify-content: center;
 }
 
 h3 {
-	padding-top: 50px;
 	text-align: center;
 }
 
+.link {
+	display: flex;
+	justify-content: center;
+}
 .cartContainer{
-	width: 100%;
+	width: 50%;
 	height: 90%;
 	background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 10px 20px #1687d933;
+	margin: auto;
+}
+.headbtn{
+	display: flex;
+	justify-content: center;	
 }
 
 .header{
@@ -32,6 +40,7 @@ h3 {
 	font-family: 'Open Sans';
 	font-weight: 700;
 	color: #2F3841;
+	text-align: center;
 }
 .checkout{
 	float: right;
@@ -39,31 +48,26 @@ h3 {
 	width: 28%;
 }
 
-.total{
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-}
-
 .totalamount{
 	font-size: 36px;
 	font-family: 'Open Sans';
 	font-weight: 900;
 	color: #202020;
+	display: flex;
+	justify-content: flex-end;
 }
 
-.button{
-	margin-top: 10px;
-	width: 100%;
-	height: 40px;
-	border: none;
-	background: #ff6700;
-	border-radius: 20px;
-	cursor: pointer;
-	font-size: 16px;
-	font-family: 'Open Sans';
-	font-weight: 600;
-	color: #202020;
+.btn {
+  width: 250px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: #ff6700;
+  color: white;
+	margin-bottom: 10px;
+  margin-top: 20px;
+  border-radius: 30px;
+  cursor: pointer
 }
 
 hr{
@@ -72,15 +76,11 @@ hr{
 	margin-right: 5%;
 }
 
-.btn {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  background: #ff6700;
-  color: white;
-  margin-top: 20%;
-  border-radius: 30px;
-  align-self: center;
-  cursor: pointer
+.action{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+	text-align: end;
 }

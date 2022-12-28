@@ -5,7 +5,6 @@ import './Initial.css'
 import Banner from '../../components/Banner/Banner';
 import Cart from '../../components/Cart/Cart';
 import CartProvider from '../../context/CartContext';
-import Categories2 from '../../containers/Categories/Categories';
 import Checkout from '../../components/Checkout/Checkout';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../containers/Header/Header';
@@ -26,7 +25,6 @@ export const Initial =() =>{
     <BrowserRouter>
       <CartProvider>
           <Layout>
-            <Categories2 />
             <Header categories={Categories} />
             {/* <Banner /> */}
               <Routes>
