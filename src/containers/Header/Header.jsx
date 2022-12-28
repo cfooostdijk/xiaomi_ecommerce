@@ -4,16 +4,12 @@ import Brandbar from '../../components/Brandbar/Brandbar';
 import Navbar from '../../components/Navbar/Navbar';
 import Brandlogo from '../../assets/Icons/Brandlogo';
 import CartWidget from '../../containers/CartWidget';
-import { ThemeContext } from '../../context/ThemeContext';
-import SwitchButton from '../../components/Lightswitch/Lightswitch';
+
 
 const Header = ({categories}) => {
 
-  const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
-
 	return (
-		<div className={`bg ${darkMode ? "bg-dark" : "bg-light"}`}>
+		<>
       <Brandbar />
       <div className={styles.header}>
         <div className={styles.headerbrand}>
@@ -25,9 +21,8 @@ const Header = ({categories}) => {
         <div className={styles.headericons}>
           <CartWidget />
         </div>
-        <SwitchButton />
       </div>
-		</div>
+		</>
 	)
 }
 

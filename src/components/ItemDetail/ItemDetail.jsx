@@ -19,7 +19,7 @@ const ItemDetail = ({ product }) => {
         <img src={product.image} alt={product.title} />
       </div>
       <div className={styles.description}>
-        <Link to="/"> <button className={styles.btn}>Back to products</button></Link>
+        <Link to="/catalog"> <button className={styles.btn}>Back to products</button></Link>
         <h2>{product.title}</h2>
         <h1>$ {product.price}</h1>
         <p>{product.description}</p>

@@ -188,14 +188,16 @@ const Checkout = () => {
 						</Grid>
 					</Grid>
 
-					<Box mt={3} className={styles.buttoncont}>
+					<Box mt={3} className={styles.btncont}>
 						<Button className={styles.btn}
+							variant="contained"
+							color="primary"
 							onClick={handleSubmit(onSubmit)}
 						>
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/payment'><Button className={styles.btn} onClick={handleClick} >
+							goToPayment ? <Link to='/payment'><Button  className={styles.btn}	variant="contained"	color="primary"	onClick={handleClick} >
 							Go to Payment </Button></Link> : <p></p>
 						}
 					</Box>

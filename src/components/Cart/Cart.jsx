@@ -12,7 +12,7 @@ const Cart = () => {
     return (
       <div className={styles.nocart}>
         <h3>No hay elementos en el carrito <Emoji symbol="🙁" label="sad"/> </h3>
-        <Link className={styles.link} to="/"> <button className={styles.btn}>Back to products</button></Link>
+        <Link className={styles.link} to="/catalog"> <button className={styles.btn}>Back to products</button></Link>
       </div>
     );
   }
@@ -20,7 +20,7 @@ const Cart = () => {
   return (
     <div className={styles.cartContainer}>
       <div className={styles.headbtn}>
-        <Link to='/'><button className={styles.btn}>Back to products</button></Link>
+        <Link to='/catalog'><button className={styles.btn}>Back to products</button></Link>
       </div>
 
 			<div> { cart.map(product => <ItemCart key={product.id} product={product} /> )}</div>
