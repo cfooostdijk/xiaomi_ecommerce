@@ -3,9 +3,11 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import Spinner from "../../assets/Spinners/Spinner";
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
+  const [prodValid, setProdValid] = useState(true);
   const [loading, setLoading] = useState(true);
   const {id} = useParams();
 
@@ -14,21 +16,23 @@ const ItemDetailContainer = () => {
     const queryDoc = doc(querydb, 'products', id);
     setLoading(false)
     getDoc(queryDoc)
-      // .then(product => {setProduct({id: product.id, ...product.data() }))
-    .then(product => {
-      if (product.exists) {
-        setProduct({id: product.id, ...product.data() });
-      } else {
-        console.log('document abc DOES NOT exist');
-      }
-    })},
+      .then(product => !product.exists() ? setProdValid(false) : setProduct({id: product.id, ...product.data()})
+    )},
   [id])
-  
-  return (
-    <div style={styles.cont}>
-      {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}
-    </div>
-  );
+
+  if (prodValid === false) {
+    return (
+      <>
+        {loading ? <Spinner /> : <ErrorPage />}
+      </>
+    )
+  } else {
+    return (
+      <div style={styles.cont}>
+        {loading ? <Spinner /> : <ItemDetail product={product} />}
+      </div>
+    )
+  }
 };
 
 const styles = {
@@ -42,6 +46,3 @@ const styles = {
 }
 
 export default ItemDetailContainer;
-
-// setLoading(false);
-// {<>{loading ? <Spinner /> : <ItemDetail product={product} />}</>}

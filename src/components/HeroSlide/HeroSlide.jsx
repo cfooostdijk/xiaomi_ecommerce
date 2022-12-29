@@ -12,7 +12,7 @@ function HeroSlide({ images }) {
       autoPlay &&
       setTimeout(() => {
         slideRight();
-      }, 5000);
+      }, 3000);
   });
 
   const slideRight = () => {

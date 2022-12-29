@@ -31,5 +31,3 @@ const ItemListContainer = () => {
 };
   
 export default ItemListContainer;
-
-// {<>{loading ? <Spinner /> : <ItemList products={products} />}</>}

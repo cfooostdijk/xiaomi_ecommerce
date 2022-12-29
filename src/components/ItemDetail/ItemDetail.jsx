@@ -20,12 +20,13 @@ const ItemDetail = ({ product }) => {
       </div>
       <div className={styles.description}>
         <Link to="/catalog"> <button className={styles.btn}>Back to products</button></Link>
-        <h2>{product.title}</h2>
-        <h1>$ {product.price}</h1>
-        <p>{product.description}</p>
+        <h1>{product.title}</h1>
+        <h2>$ {product.price}</h2>
+        <h5>{product.description}</h5>
+        <h5>Cantidad disponible: {product.stock} </h5>
         {
           goToCart ? <Link to='/cart'><button className={styles.btn}>Go to cart</button></Link>
-          : <ItemCount initial={3} stock={5} onAdd={onAdd} />
+          : <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
         }
       </div>
     </div>
