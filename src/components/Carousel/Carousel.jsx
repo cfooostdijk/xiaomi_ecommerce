@@ -34,8 +34,6 @@ const Carr = () => {
     const queryCollection = collection(querydb, 'products');
     getDocs(queryCollection)
       .then(res => setProducts(res.docs.map(product => ({id: product.id, ...product.data()}))))
-
-    console.log(products)
   },[id])
 
   return (

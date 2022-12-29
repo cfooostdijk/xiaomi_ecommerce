@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './styles/Order.module.css';
 
-const Order = () => {
-	return <div className={styles.order}>Order</div >;
+const Order = ({order, id}) => {
+	return (
+		<div className={styles.order}>que onda{order}{id}</div >
+	)
 };
 
 export default Order;

@@ -7,6 +7,7 @@ import { Fragment } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { useParams } from "react-router-dom"; 
 
 import {
 	Paper,
@@ -18,11 +19,13 @@ import {
   Checkbox,
   Button
 } from '@mui/material';
+import Order from '../../containers/Order/Order';
 
 const Checkout = () => {
 	const [goToPayment, setGoToPayment] = useState(false);
 	const [customer, setCustomer] = useState();
 	const { cart, totalPrice, totalProducts } = useCartContext();
+	const {id} = useParams();
 
 	const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Fullname is required'),
@@ -55,7 +58,6 @@ const Checkout = () => {
 	const onSubmit = (data) => {
 		setCustomer(data);
 		setGoToPayment(true);
-		console.log(data);
 	};
 
 	const order = {
@@ -197,7 +199,7 @@ const Checkout = () => {
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/payment'><Button  className={styles.btn}	variant="contained"	color="primary"	onClick={handleClick} >
+							goToPayment ? <Link to='/payment' element={<Order order={order} id={id} />}><Button  className={styles.btn}	variant="contained"	color="primary"	onClick={handleClick} >
 							Go to Payment </Button></Link> : <p></p>
 						}
 					</Box>

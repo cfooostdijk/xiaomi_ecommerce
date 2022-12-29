@@ -11,6 +11,7 @@ import ItemListContainer from '../../containers/ItemListContainer';
 import Layout from '../../containers/Layout';
 import Landing from '../Landing/Landing';
 import ErrorPage from '../ErrorPage/ErrorPage';
+import Order from '../../containers/Order/Order';
 
 export const Initial =() =>{
 
@@ -34,7 +35,7 @@ export const Initial =() =>{
                 <Route exact path="/:id" element={<ItemDetailContainer />}/>
                 <Route exact path='/cart' element={<Cart />} />
                 <Route exact path='/checkout' element={<Checkout />} />
-                <Route exact path='/payment' element={''} />
+                <Route exact path='/payment' element={<Order />} />
                 <Route exact path="*" element={<ErrorPage />} />
               </Routes>
             <Footer />
