@@ -8,7 +8,7 @@ import Spinner from "../../assets/Spinners/Spinner";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
-  const [prodValid, setProdValid] = useState(true);
+  const [valid, setValid] = useState(true);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
@@ -22,13 +22,12 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const querydb = getFirestore();
     const queryDoc = doc(querydb, 'products', id);
-    setLoading(false)
     getDoc(queryDoc)
-      .then(product => !product.exists() ? setProdValid(false) : setProduct({ id: product.id, ...product.data() })
+      .then(product => !product.exists() ? setValid(false) : setProduct({ id: product.id, ...product.data() })
     )},
   [id])
 
-  if (prodValid === false) {
+  if (valid === false) {
     return (
       <> { loading ? <Spinner /> : <ErrorPage /> } </>
     )

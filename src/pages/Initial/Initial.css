@@ -35,3 +35,14 @@ a {
 	display: flex;
 	justify-content: flex-end;
 }
+
+.hero {
+  width: 100%;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.page {
+  display: grid;
+  justify-content: center;
+}

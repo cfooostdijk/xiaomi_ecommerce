@@ -1,5 +1,5 @@
 import React from 'react';
-import './Landing.css';
+import '../Initial/Initial.css';
 
 import Carr from '../../components/Carousel/Carousel';
 import HeroSlide from '../../components/HeroSlide/HeroSlide';

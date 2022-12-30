@@ -1,5 +1,5 @@
 import React from 'react';
-import './ErrorPage.css';
+import '../Initial/Initial.css';
 
 import BackToProducts from '../../components/Buttons/BackToProducts/BackToProducts';
 
