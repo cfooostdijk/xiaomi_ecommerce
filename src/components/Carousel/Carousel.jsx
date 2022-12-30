@@ -38,7 +38,7 @@ const Carr = () => {
 
   return (
     <>
-      <Carousel showDots={true} responsive={responsive}>
+      <Carousel showDots={false} responsive={responsive}>
         {products.map((product) =>
               <Item key={product.id} product={product} />
           )}

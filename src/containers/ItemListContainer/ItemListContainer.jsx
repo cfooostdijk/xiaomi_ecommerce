@@ -6,8 +6,15 @@ import Spinner from "../../assets/Spinners/Spinner";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const {id} = useParams();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   useEffect(()=>{
     const querydb = getFirestore();
@@ -20,7 +27,6 @@ const ItemListContainer = () => {
       getDocs(queryCollection)
       .then(res => setProducts(res.docs.map(product => ({id: product.id, ...product.data()}))))
     }
-    setLoading(false);
   },[id])
 
   return (

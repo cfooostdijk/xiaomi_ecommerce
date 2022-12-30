@@ -29,8 +29,8 @@ const styles = {
   img: {
     width:"auto",
     height:"auto",
-    maxWidth:"300px",
-    maxHeight:"400px",
+    maxWidth:"200px",
+    maxHeight:"300px",
   }
 }
 

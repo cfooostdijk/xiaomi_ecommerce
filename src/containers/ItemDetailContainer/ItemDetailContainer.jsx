@@ -8,8 +8,15 @@ import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const [prodValid, setProdValid] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const {id} = useParams();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   useEffect(() => {
     const querydb = getFirestore();
@@ -22,9 +29,9 @@ const ItemDetailContainer = () => {
 
   if (prodValid === false) {
     return (
-      <>
+      <div style={styles.cont}>
         {loading ? <Spinner /> : <ErrorPage />}
-      </>
+      </div>
     )
   } else {
     return (
