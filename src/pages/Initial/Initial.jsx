@@ -12,7 +12,7 @@ import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetail
 import ItemListContainer from '../../containers/ItemListContainer';
 import Landing from '../Landing/Landing';
 import Layout from '../../containers/Layout';
-import Order from '../../containers/Order/Order';
+import Order from '../../containers/OrderContainer/OrderContainer';
 import Register from '../../components/Register/Register';
 
 export const Initial =() =>{
