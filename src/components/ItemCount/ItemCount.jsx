@@ -13,7 +13,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
     <div className={styles.count}>
       <div className={styles.btn__container}>
         <button disabled={count <= 0} className={styles.control__btn} onClick={()=>decrease()}>-</button>
-        <input value={count} className={styles.number} />
+        <input value={count} className={styles.number} readOnly={true} />
         <button disabled={count >= stock} className={styles.control__btn} onClick={()=>increase()}>+</button>
       </div>
       <div>

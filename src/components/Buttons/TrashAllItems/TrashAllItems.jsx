@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Trash from '../../../assets/Icons/Trash/Trash';
 import '../Buttons.css';
 
