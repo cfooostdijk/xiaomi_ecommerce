@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+<center>
+  <p align="center"><img src="./favicon.png" /></p>
+  <h1 align="center">Xiaomi Ecommerce</h1>
+</center>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Creates a link next to edited and deleted Reddit comments and submissions to show the original post from before it was edited/removed.
 
-## Available Scripts
+The unedited comment will be displayed inline, right below the current comment or submission's text.
 
-In the project directory, you can run:
+This script is compatible with both Reddit's Redesign and Old Reddit.
 
-### `npm start`
+The [Pushshift Reddit API](https://github.com/pushshift/api) is used for fetching the comments as they will be archived soon after they have been posted.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to use
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![instructions](https://user-images.githubusercontent.com/20955511/172483035-90eff88d-4b7d-416a-951d-001c96299476.png)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![Install with Greasy Fork](https://user-images.githubusercontent.com/20955511/201193167-934b9e7b-66b2-4b6b-84e3-d8a677c66da4.png)](https://greasyfork.org/en/scripts/407466-unedit-and-undelete-for-reddit)
+[![Available in the Chrome Web Store](https://user-images.githubusercontent.com/20955511/201192698-df2474d7-83e8-429f-a4a5-d590ff1bfb5b.png)](https://chrome.google.com/webstore/detail/unedit-and-undelete-for-r/cnpmnmpafbfojcoofaobmhmafiflgmka)
+[![Firefox Get the Add-on](https://user-images.githubusercontent.com/20955511/172904059-eb121557-ef91-43a6-a5f6-f4be5e20a5dc.png)](https://addons.mozilla.org/en-US/firefox/addon/unedit-for-reddit/)
 
-### `npm run build`
+### As a Userscript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This script can be installed on most browsers using userscript browser extensions such as [Violentmonkey](https://violentmonkey.github.io/), [Tampermonkey](https://www.tampermonkey.net/), among others using the green button on [Greasy Fork](https://greasyfork.org/en/scripts/407466-unedit-and-undelete-for-reddit).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Alternatively, you may copy the contents of [`script.js`](https://github.com/DenverCoder1/Unedit-for-Reddit/blob/master/script.js) into a new script using any userscript browser extension.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### As a Chrome Extension
 
-### `npm run eject`
+Install from the [Chrome Web Store](https://chrome.google.com/webstore/detail/unedit-and-undelete-for-r/cnpmnmpafbfojcoofaobmhmafiflgmka), or alternatively, download or clone this repository, enable "Developer mode" at <chrome://extensions/>, and load the folder unpacked.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### As a Firefox Addon
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/unedit-for-reddit/), or alternatively, follow these steps to build and install from the source:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To sign the extension for use in Firefox, you will need credentials from https://addons.mozilla.org/en-US/developers/addon/api/key/. Create a copy of `.env.example` named `.env` and replace the placeholders with your API key and secret. Install `web-ext` with `npm install -g web-ext` and sign the extension with `make sign-firefox`. The generated extension will appear as a `.xpi` file in `./web-ext-artifacts`. This file can be opened in Firefox to install the add-on.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Known issues
 
-## Learn More
+The following are known limitations that cannot be fixed:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   The fetched comment may occasionally be the edited version instead of the original. This is because the Pushshift archive may take more time to archive the comment than it took the user to edit the comment, therefore causing Pushshift to archive the edited version and not the original. Additionally, comments that are several years old may also show the edited version since the original versions of comments edited before the first archival will not appear in Pushshift.
+-   Comments that were posted within the past few minutes may occasionally show "not found" since Pushshift can take some time to archive all comments.
+-   Comments in private subreddits will show "not found" as they are not able to be archived by Pushshift.
+-   Comments deleted by Reddit's spam filter will show "not found" as the text is never available for Pushshift to archive.
+-   Comments and posts by users who have requested the deletion of the data from Pushshift will show as "not found".
+-   If the Pushshift API is temporarily down or partially down, the message "fetch failed" may appear.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Changelog
 
-### Code Splitting
+### Changes in 3.16.1
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   Removed sort order parameters due to recent breaking changes in the Pushshift API
+-   Added title text to show original links and error links to show additional information when hovering over them
 
-### Analyzing the Bundle Size
+### Changes in 3.16.0
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-   Support for .compact Reddit layout
+-   Show original links will not be shown if the post ID could not be determined
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

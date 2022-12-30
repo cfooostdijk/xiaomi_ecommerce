@@ -7,7 +7,6 @@ import { Fragment } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useParams } from "react-router-dom"; 
 
 import {
 	Paper,
@@ -24,7 +23,8 @@ import Order from '../../containers/Order/Order';
 const Form = () => {
 	const [goToPayment, setGoToPayment] = useState(false);
 	const [customer, setCustomer] = useState();
-	const { cart, totalPrice } = useCartContext();
+	const [orderId, setOrderId] = useState([]);
+	const { cart, totalPrice, clearCart } = useCartContext();
 
 	const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
@@ -83,7 +83,11 @@ const Form = () => {
     const db = getFirestore();
     const ordersCollection = collection(db, 'orders');
     addDoc(ordersCollection, order)
-			.then(({ id }) => console.log(id));
+			.then( ({id} ) => {
+				console.log(id)
+				setOrderId(id)}
+				)
+		clearCart()
   }
 
 	return (
@@ -227,7 +231,7 @@ const Form = () => {
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/checkout' element={<Order />}><Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
+							goToPayment ? <Link to='/checkout' element={<Order orderId={orderId} />}><Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
 							Go to Payment </Button></Link> : <p></p>
 						}
 					</Box>

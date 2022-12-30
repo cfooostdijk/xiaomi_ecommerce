@@ -1,10 +1,45 @@
-import React from 'react';
-import styles from './styles/Order.module.css';
+import React, { useEffect, useState } from "react";
+// import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
-const Order = ({order, id}) => {
+// import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+// import Spinner from "../../assets/Spinners/Spinner";
+// import OrderDetail from '../../components/OrderDetail/OrderDetail';
+
+const Order = ({ orderId }) => {
+
+  // const [order, setOrder] = useState([]);
+  // const [valid, setValid] = useState(true);
+  // const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1500);
+  // }, []);
+
+  // useEffect(() => {
+  //   const querydb = getFirestore();
+  //   const queryDoc = doc(querydb, 'orders', id);
+  //   getDoc(queryDoc)
+  //     .then(order => !order.exists() ? setValid(false) : setOrder({ id: order.id, ...order.data() })
+  //   )},
+  // [id])
+
 	return (
-		<div className={styles.order}>que onda{order}{id}</div >
+		<h1>Orden: {orderId}</h1>
 	)
-};
+}
+
+//   if (valid === false) {
+//     return (
+//       <> { loading ? <Spinner /> : <ErrorPage /> } </>
+//     )
+//   } else {
+//     return (
+//       <> { loading ? <Spinner /> : <OrderDetail order={order} /> } </>
+//     )
+//   }
+// };
 
 export default Order;
