@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@200&display=swap');
+
+.itemList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Sarabun', sans-serif;
+  padding-top: 40px;
+  padding-right: 10px;
+}
+
+.cartList{
+	width: 50%;
+	height: 90%;
+	background-color: #ffffff;
+	margin: auto;
+}
+
+.totalAmount{
+	font-size: 36px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
+	display: flex;
+	justify-content: flex-end;
+}

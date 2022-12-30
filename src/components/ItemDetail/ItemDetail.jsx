@@ -16,6 +16,7 @@ const ItemDetail = ({ product }) => {
   }
 
   return (
+    <div className={styles.king}>
     <div className={styles.card}>
       <div className={styles.photo}>
         <img src={product.image} alt={product.title} />
@@ -31,6 +32,7 @@ const ItemDetail = ({ product }) => {
           : <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
         }
       </div>
+    </div>
     </div>
   );
 };

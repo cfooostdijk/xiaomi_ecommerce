@@ -1,17 +1,14 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-import BackToProducts from '../../components/Buttons/BackToProducts/BackToProducts';
 import './ErrorPage.css';
 
-const NotFound =() =>{
+import BackToProducts from '../../components/Buttons/BackToProducts/BackToProducts';
 
+const NotFound =() =>{
   return (
-		<>
-			<div className="hit-the-floor">404</div>
-    	<div className='page'>
-				<Link to='/catalog'><BackToProducts /></Link>
-    	</div>
-		</>
+		<div className='page'>
+			<div><h1>Nothing over here</h1></div>
+			<BackToProducts />
+		</div>
   )
 }
 

@@ -1,2 +1,3 @@
-import Initial from './Initial';
+import Initial from './Initial'
 export default Initial;
+

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Icons.css';
 import {Link} from 'react-router-dom'
+import '../Icons.css';
 
 const Cart = () => {
   return (

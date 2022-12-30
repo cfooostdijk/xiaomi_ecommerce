@@ -1,10 +1,10 @@
 import React from 'react'
 import Item from '../../components/Item/Item'
-import styles from './styles/ItemList.module.scss';
+import '../../pages/Initial/Initial.css'
 
 const ItemList = ({ products }) => {
 	return (
-		<div className={styles.container}>
+		<div className='itemList'>
 				{products.map((product) =>
 						<Item key={product.id} product={product} />
 				)}

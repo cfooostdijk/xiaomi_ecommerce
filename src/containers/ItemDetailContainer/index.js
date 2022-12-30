@@ -1,1 +1,2 @@
-export { default as ItemDetailContainer } from './ItemDetailContainer';
+import ItemDetailContainer from './ItemDetailContainer'
+export default ItemDetailContainer;
