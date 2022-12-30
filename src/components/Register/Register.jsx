@@ -25,7 +25,7 @@ const Form = () => {
 	const [goToPayment, setGoToPayment] = useState(false);
 	const [customer, setCustomer] = useState();
 	const { cart, totalPrice } = useCartContext();
-	const {id} = useParams();
+
 	const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 	const validationSchema = Yup.object().shape({
@@ -67,17 +67,23 @@ const Form = () => {
 		setGoToPayment(true);
 	};
 
+	const date = new Date();
+	const current_date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+ date.getDate();
+	const current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+	const date_time = current_date+" "+current_time;	
+
 	const order = {
 		buyer: customer,
 		items: cart.map(product => ({ id: product.id, title: product.title, price: product.price, quantity: product.quantity })),
 		total: totalPrice(),
+		date: date_time,
 	}
 
   const handleClick = () => {
     const db = getFirestore();
     const ordersCollection = collection(db, 'orders');
     addDoc(ordersCollection, order)
-      .then(({ id }) => console.log(id))
+			.then(({ id }) => console.log(id));
   }
 
 	return (
@@ -221,7 +227,7 @@ const Form = () => {
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/payment' element={<Order order={order} id={id} />}><Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
+							goToPayment ? <Link to='/checkout' element={<Order />}><Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
 							Go to Payment </Button></Link> : <p></p>
 						}
 					</Box>

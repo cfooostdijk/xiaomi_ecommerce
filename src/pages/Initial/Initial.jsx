@@ -37,7 +37,7 @@ export const Initial =() =>{
               <Route exact path='/:id' element={<ItemDetailContainer />} />
               <Route exact path='/cart' element={<CartContainer />} />
               <Route exact path='/register' element={<Register />} />
-              <Route exact path='/payment' element={<Order />} />
+              <Route exact path='/checkout' element={<Order />} />
               <Route exact path='*' element={<ErrorPage />} />
             </Routes>
             <Footer />
