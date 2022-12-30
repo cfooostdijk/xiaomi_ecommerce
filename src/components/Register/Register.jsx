@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './styles/Checkout.module.css';
+import './Register.css'
 import { useCartContext } from "../../context/CartContext";
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import {Link} from 'react-router-dom'
@@ -21,28 +21,35 @@ import {
 } from '@mui/material';
 import Order from '../../containers/Order/Order';
 
-const Checkout = () => {
+const Form = () => {
 	const [goToPayment, setGoToPayment] = useState(false);
 	const [customer, setCustomer] = useState();
-	const { cart, totalPrice, totalProducts } = useCartContext();
+	const { cart, totalPrice } = useCartContext();
 	const {id} = useParams();
+	const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 	const validationSchema = Yup.object().shape({
-    fullname: Yup.string().required('Fullname is required'),
-    username: Yup.string()
-      .required('Username is required')
-      .min(6, 'Username must be at least 6 characters')
-      .max(20, 'Username must not exceed 20 characters'),
-    email: Yup.string()
-      .required('Email is required')
-      .email('Email is invalid'),
-    password: Yup.string()
+    lastname: Yup.string()
+			.required('Last name is required')
+			.min(6, 'First name must be at least 6 characters')
+      .max(20, 'First name must not exceed 20 characters'),
+    firstname: Yup.string()
+      .required('First name is required')
+      .min(6, 'First name must be at least 6 characters')
+      .max(20, 'First name must not exceed 20 characters'),
+		phone: Yup.string()
+			.matches(phoneRegExp, 'Phone number is not valid')
+			.required('Phone is required'),
+		password: Yup.string()
       .required('Password is required')
       .min(6, 'Password must be at least 6 characters')
       .max(40, 'Password must not exceed 40 characters'),
-    confirmPassword: Yup.string()
-      .required('Confirm Password is required')
-      .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
+		email: Yup.string()
+      .required('Email is required')
+      .email('Email is invalid'),
+    confirmEmail: Yup.string()
+      .required('Confirm Email is required')
+      .oneOf([Yup.ref('email'), null], 'Confirm Email does not match'),
     acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required')
   });
 
@@ -75,56 +82,56 @@ const Checkout = () => {
 
 	return (
 		<Fragment>
-			<Paper className={styles.paper}>
+			<Paper className='paper'>
 				<Box px={3} py={2}>
 					<Typography variant="h6" align="center" margin="dense">
-						Checkout register
+						Register
 					</Typography>
 
 					<Grid container spacing={1}>
-						<Grid item xs={12} sm={12}>
+						<Grid item xs={12} sm={6}>
 							<TextField
 								required
-								id="fullname"
-								name="fullname"
-								label="Full Name"
+								id="lastname"
+								name="lastname"
+								label="Last Name"
 								fullWidth
 								margin="dense"
-								{...register('fullname')}
-								error={errors.fullname ? true : false}
+								{...register('lastname')}
+								error={errors.lastname ? true : false}
 							/>
 							<Typography variant="inherit" color="textSecondary">
-								{errors.fullname?.message}
+								{errors.lastname?.message}
 							</Typography>
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<TextField
 								required
-								id="username"
-								name="username"
-								label="Username"
+								id="firstname"
+								name="firstname"
+								label="First name"
 								fullWidth
 								margin="dense"
-								{...register('username')}
-								error={errors.username ? true : false}
+								{...register('firstname')}
+								error={errors.firstname ? true : false}
 							/>
 							<Typography variant="inherit" color="textSecondary">
-								{errors.username?.message}
+								{errors.firstname?.message}
 							</Typography>
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<TextField
 								required
-								id="email"
-								name="email"
-								label="Email"
+								id="phone"
+								name="phone"
+								label="Phone"
 								fullWidth
 								margin="dense"
-								{...register('email')}
-								error={errors.email ? true : false}
+								{...register('phone')}
+								error={errors.phone ? true : false}
 							/>
 							<Typography variant="inherit" color="textSecondary">
-								{errors.email?.message}
+								{errors.phone?.message}
 							</Typography>
 						</Grid>
 						<Grid item xs={12} sm={6}>
@@ -146,17 +153,32 @@ const Checkout = () => {
 						<Grid item xs={12} sm={6}>
 							<TextField
 								required
-								id="confirmPassword"
-								name="confirmPassword"
-								label="Confirm Password"
-								type="password"
+								id="email"
+								name="email"
+								label="Email"
 								fullWidth
 								margin="dense"
-								{...register('confirmPassword')}
-								error={errors.confirmPassword ? true : false}
+								{...register('email')}
+								error={errors.email ? true : false}
 							/>
 							<Typography variant="inherit" color="textSecondary">
-								{errors.confirmPassword?.message}
+								{errors.email?.message}
+							</Typography>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								id="confirmEmail"
+								name="confirmEmail"
+								label="Confirm Email"
+								type="email"
+								fullWidth
+								margin="dense"
+								{...register('confirmEmail')}
+								error={errors.confirmEmail ? true : false}
+							/>
+							<Typography variant="inherit" color="textSecondary">
+								{errors.confirmEmail?.message}
 							</Typography>
 						</Grid>
 						<Grid item xs={12}>
@@ -190,8 +212,8 @@ const Checkout = () => {
 						</Grid>
 					</Grid>
 
-					<Box mt={3} className={styles.btncont}>
-						<Button className={styles.btn}
+					<Box mt={3} className='btncont'>
+						<Button className='btn'
 							variant="contained"
 							color="primary"
 							onClick={handleSubmit(onSubmit)}
@@ -199,7 +221,7 @@ const Checkout = () => {
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/payment' element={<Order order={order} id={id} />}><Button  className={styles.btn}	variant="contained"	color="primary"	onClick={handleClick} >
+							goToPayment ? <Link to='/payment' element={<Order order={order} id={id} />}><Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
 							Go to Payment </Button></Link> : <p></p>
 						}
 					</Box>
@@ -209,4 +231,4 @@ const Checkout = () => {
 	);
 };
 
-export default Checkout;
+export default Form;

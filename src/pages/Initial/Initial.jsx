@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import CartContainer from '../../containers/CartContainer';
 import CartProvider from '../../context/CartContext';
-import Checkout from '../../components/Checkout/Checkout';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
@@ -14,6 +13,7 @@ import ItemListContainer from '../../containers/ItemListContainer';
 import Landing from '../Landing/Landing';
 import Layout from '../../containers/Layout';
 import Order from '../../containers/Order/Order';
+import Register from '../../components/Register/Register';
 
 export const Initial =() =>{
 
@@ -36,7 +36,7 @@ export const Initial =() =>{
               <Route exact path='/category/:id' element={<ItemListContainer />} />
               <Route exact path='/:id' element={<ItemDetailContainer />} />
               <Route exact path='/cart' element={<CartContainer />} />
-              <Route exact path='/checkout' element={<Checkout />} />
+              <Route exact path='/register' element={<Register />} />
               <Route exact path='/payment' element={<Order />} />
               <Route exact path='*' element={<ErrorPage />} />
             </Routes>

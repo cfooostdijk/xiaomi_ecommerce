@@ -3,7 +3,7 @@
 	justify-content: center;	
 }
 
-.addtocart, .backtoproducts, .gotocart, .checkitout, .gotocheckout, .trashallitems {
+.addtocart, .backtoproducts, .gotocart, .checkitout, .gotoregister, .trashallitems {
   width: 250px;
   padding: 10px;
   border: none;

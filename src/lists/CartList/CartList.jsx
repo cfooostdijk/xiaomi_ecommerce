@@ -4,7 +4,7 @@ import ItemCart from "../../components/ItemCart/ItemCart";
 import '../../pages/Initial/Initial.css'
 
 import BackToProducts from "../../components/Buttons/BackToProducts/BackToProducts";
-import GoToCheckout from '../../components/Buttons/GoToCheckout/GoToCheckout';
+import GoToRegister from "../../components/Buttons/GoToRegister/GoToRegister";
 import TrashAllItems from "../../components/Buttons/TrashAllItems/TrashAllItems";
 
 
@@ -17,7 +17,7 @@ const CartList = () => {
 				<BackToProducts />
 				<div> { cart.map(product => <ItemCart key={product.id} product={product} /> )}</div>
 				<div className='totalAmount'>Total: $ {totalPrice()}</div>
-				<GoToCheckout />
+				<GoToRegister />
 				<p onClick={() => clearCart()} ><TrashAllItems /></p>
 			</div>
 		</>
