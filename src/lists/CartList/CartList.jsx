@@ -18,7 +18,7 @@ const CartList = () => {
 				<div> { cart.map(product => <ItemCart key={product.id} product={product} /> )}</div>
 				<div className='totalAmount'>Total: $ {totalPrice()}</div>
 				<GoToRegister />
-				<p onClick={() => clearCart()} ><TrashAllItems /></p>
+				<div onClick={() => clearCart()} ><TrashAllItems /></div>
 			</div>
 		</>
 	)

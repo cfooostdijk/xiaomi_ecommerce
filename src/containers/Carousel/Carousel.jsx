@@ -1,8 +1,11 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from "react";
+
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { useParams } from "react-router-dom"; 
+
+import "react-multi-carousel/lib/styles.css";
+
+import Carousel from "react-multi-carousel";
 import Item from '../../components/Item/Item'
 
 const Carr = () => {

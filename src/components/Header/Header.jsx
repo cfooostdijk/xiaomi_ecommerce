@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './styles/Header.module.scss';
-import Brandbar from '../Brandbar/Brandbar';
-import Navbar from '../Navbar/Navbar';
 
+import './Header.css';
+
+import Brandbar from '../Brandbar/Brandbar';
 import BrandLogo from '../../assets/Icons/BrandLogo/BrandLogo'
-import CartWidget from '../CartWidget';
+import CartWidget from '../../containers/CartWidget';
+import NavBar from '../NavBar/NavBar';
 
 
 const Header = ({categories}) => {
@@ -12,14 +13,14 @@ const Header = ({categories}) => {
 	return (
 		<>
       <Brandbar />
-      <div className={styles.header}>
-        <div className={styles.headerbrand}>
+      <div className='header'>
+        <div className='headerbrand'>
           <BrandLogo />
         </div>
-        <div className={styles.headermenu}>
-          <Navbar categories={categories} />
+        <div className='headermenu'>
+          <NavBar categories={categories} />
         </div>
-        <div className={styles.headericons}>
+        <div className='headericons'>
           <CartWidget />
         </div>
       </div>

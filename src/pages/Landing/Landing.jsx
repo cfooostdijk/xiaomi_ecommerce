@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Initial/Initial.css';
 
-import Carr from '../../components/Carousel/Carousel';
+import Carr from '../../containers/Carousel';
 import HeroSlide from '../../components/HeroSlide/HeroSlide';
 
 export const Landing =() =>{

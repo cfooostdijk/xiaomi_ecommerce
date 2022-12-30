@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import styles from './styles/ItemDetail.module.scss';
-import ItemCount from '../ItemCount/ItemCount';
+
+import './ItemDetail.css';
+
 import { useCartContext } from '../../context/CartContext';
+
 import BackToProducts from '../Buttons/BackToProducts/BackToProducts';
 import GoToCart from '../Buttons/GoToCart/GoToCart';
+import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ product }) => {
   const [goToCart, setGoToCart] = useState(false);
@@ -15,12 +18,12 @@ const ItemDetail = ({ product }) => {
   }
 
   return (
-    <div className={styles.king}>
-    <div className={styles.card}>
-      <div className={styles.photo}>
+    <div className='king'>
+    <div className='card'>
+      <div className='photo'>
         <img src={product.image} alt={product.title} />
       </div>
-      <div className={styles.description}>
+      <div className='description'>
         <BackToProducts />
         <h1>{product.title}</h1>
         <h2>$ {product.price}</h2>

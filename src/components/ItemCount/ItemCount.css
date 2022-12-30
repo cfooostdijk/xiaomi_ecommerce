@@ -34,16 +34,3 @@
   color: rgb(255, 255, 255);
   border: 1px solid #ff6700;
 }
-
-.btn {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  background: #ff6700;
-  color: white;
-  margin-top: 10%;
-  border-radius: 30px;
-  align-self: center;
-  cursor: pointer
-}

@@ -4,9 +4,8 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  display: "flex",
+  display: "flex";
 }
-
 .card {
   width: 650px;
   background: white;
@@ -14,7 +13,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .photo {
   padding: 30px;
   width: 50%;
@@ -23,54 +21,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  img { 
-    width: auto;
-    height:auto;
-    max-width: 300px;
-    max-height: 400px;
-  }
 }
-  
+.photo img {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 400px;
+}
 .description {
   padding: 30px;
   float: left;
   width: 50%;
   border-left: 2px solid #efefef;
   text-align: center;
-  
-  h1 {
-    color: #515151;
-    margin: 0;
-    font-size: 30px;
-    font-weight: 300;
-  }
-
-  h2 {
+}
+.description h1 {
+  color: #515151;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 300;
+}
+.description h2 {
   color: #515151;
   margin: 0;
   text-transform: uppercase;
   font-weight: 500;
-  }
-  
-  p { 
-    font-size: 12px; 
-    line-height: 20px;
-    color: #727272;
-    padding: 20px 0;
-    margin: 0;
-  }      
 }
-
-.btn {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  background: #ff6700;
-  color: white;
-
-  margin-bottom: 10%;
-  border-radius: 30px;
-  align-self: center;
-  cursor: pointer
+.description p {
+  font-size: 12px;
+  line-height: 20px;
+  color: #727272;
+  padding: 20px 0;
+  margin: 0;
 }
