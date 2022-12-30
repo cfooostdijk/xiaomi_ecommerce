@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/CartWidget.module.scss';
-import CartLogo from '../../assets/Icons/CartLogo';
+import CartLogo from '../../assets/Icons/CartLogo/CartLogo';
 import { useCartContext } from '../../context/CartContext';
 
 

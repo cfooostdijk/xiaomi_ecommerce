@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCartContext } from '../../context/CartContext';
 import styles from './styles/ItemCart.module.scss';
+import Trash from '../../assets/Icons/Trash/Trash'
 
 const ItemCart = ({product}) => {
 	const { removeProduct } = useCartContext();
@@ -8,7 +9,7 @@ const ItemCart = ({product}) => {
 	return (
 		<>
 			<div className={styles.CartItems}>
-				<h5 className={styles.action} onClick={() => removeProduct(product.id)} >Remove item</h5>
+				<div className={styles.action} onClick={() => removeProduct(product.id)} ><Trash /></div>
 				<div className={styles.imagebox}>
 					<img src={product.image} alt={product.title} style={{ height:"120px" }} />
 				</div>

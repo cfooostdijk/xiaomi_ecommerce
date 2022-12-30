@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import AddToCart from '../Buttons/AddToCart/AddToCart';
 import styles from './styles/ItemCount.module.scss';
 
 
@@ -16,7 +17,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
         <button disabled={count >= stock} className={styles.control__btn} onClick={()=>increase()}>+</button>
       </div>
       <div>
-        <button disabled={stock <= 0 || count <= 0} onClick={() => onAdd(count)} className={styles.btn}>Add to Cart</button>
+        <div disabled={stock <= 0 || count <= 0} onClick={() => onAdd(count)} ><AddToCart /></div>
       </div>
     </div>
   );

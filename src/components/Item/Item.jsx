@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import CheckItOut from '../Buttons/CheckItOut/CheckItOut';
 import './Item.css';
 
 const Item = ({ product }) => {
@@ -16,7 +17,7 @@ const Item = ({ product }) => {
           <div className="bottom-text"> $ {product.price}</div>
           <div>
             <Link to={`/${product.id}`} >
-              <button type="button" className="button">Check it out</button>
+              <CheckItOut />
             </Link>
           </div>
         </div>
