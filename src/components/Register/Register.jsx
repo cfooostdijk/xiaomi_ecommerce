@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
+
 import './Register.css'
+
 import { useCartContext } from "../../context/CartContext";
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import {Link} from 'react-router-dom'
-import { Fragment } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import OrderContainer from '../../containers/OrderContainer/OrderContainer';
+
 import * as Yup from 'yup';
 
 import {
@@ -18,12 +21,12 @@ import {
   Checkbox,
   Button
 } from '@mui/material';
-import Order from '../../containers/Order/Order';
+
 
 const Form = () => {
 	const [goToPayment, setGoToPayment] = useState(false);
 	const [customer, setCustomer] = useState();
-	const [orderId, setOrderId] = useState([]);
+	const [orderId, setOrderId] = useState();
 	const { cart, totalPrice, clearCart } = useCartContext();
 
 	const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -84,12 +87,13 @@ const Form = () => {
     const ordersCollection = collection(db, 'orders');
     addDoc(ordersCollection, order)
 			.then( ({id} ) => {
-				console.log(id)
 				setOrderId(id)}
 				)
 		clearCart()
   }
 
+	if(orderId) return(<OrderContainer orderId={orderId}/>)
+	
 	return (
 		<Fragment>
 			<Paper className='paper'>
@@ -231,8 +235,11 @@ const Form = () => {
 							Register
 						</Button>
 						{
-							goToPayment ? <Link to='/checkout' element={<Order orderId={orderId} />}><Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
-							Go to Payment </Button></Link> : <p></p>
+							goToPayment ? 
+								<Button  className='btn'	variant="contained"	color="primary"	onClick={handleClick} >
+								Go to Payment 
+								</Button>
+							 : <p></p>
 						}
 					</Box>
 				</Box>
