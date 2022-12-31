@@ -16,7 +16,8 @@ Demo app used Xiaomi Ecommerce features are as follows:
 - Product details screen
 - Cart list
 - Register and checkout
-- WIP Order
+- Order v 0.1.0
+- WIP Dark Theme
 - WIP Payment
 
 ## App Generation

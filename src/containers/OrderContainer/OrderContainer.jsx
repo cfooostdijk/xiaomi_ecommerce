@@ -25,7 +25,7 @@ useEffect(() => {
 	const queryDoc = doc(querydb, 'orders', orderId);
 	
 	getDoc(queryDoc)
-		.then(order => { setOrderDetail({ orderId: order.id, ...order.data() } )})
+		.then(order => !order.exists() ? setValid(false) : setOrderDetail({ orderId: order.id, ...order.data() } ))
 	}, [orderId])
 
   if (valid === false) {
